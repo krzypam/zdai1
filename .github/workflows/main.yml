@@ -1,0 +1,25 @@
+name: Run model
+
+on: 
+  push:
+    branches: ['main']
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Możesz określić konkretną
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt 
+
+      - name: Run load_data.py
+        run: python src/load_data.py
+  
