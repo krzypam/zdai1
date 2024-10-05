@@ -15,7 +15,7 @@ def train():
     mae = mean_absolute_error(y_test, model.predict(X_test))
     print(mae)
     dump(model, 'model/model.joblib')
-    mlflow.log_metrics("mae", mae)
+    mlflow.log_metric("mae", mae)
     return mae
 
 if __name__ == '__main__':
